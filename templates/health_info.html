@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block title %}健康情報 - 助産師による女性の健康相談{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h2>健康情報</h2>
+    <p>女性の健康に役立つ情報をお届けします</p>
+</div>
+
+<section class="health-articles">
+    <div class="articles-grid">
+        {% for article in articles %}
+        <div class="article-card">
+            <div class="article-category category-{{ article.category }}">
+                {% if article.category == 'pregnancy' %}
+                    妊娠・出産
+                {% elif article.category == 'postpartum' %}
+                    産後ケア
+                {% elif article.category == 'breastfeeding' %}
+                    授乳
+                {% elif article.category == 'womens_health' %}
+                    女性の健康
+                {% endif %}
+            </div>
+            <h3>{{ article.title }}</h3>
+            <p>{{ article.summary }}</p>
+            <a href="#" class="read-more">詳しく読む →</a>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<section class="topics">
+    <h3>よくある質問</h3>
+    <div class="faq-list">
+        <div class="faq-item">
+            <h4>Q. つわりがひどくて食事が取れません。どうしたらいいですか？</h4>
+            <p>A. つわりの時期は、無理に食べようとせず、食べられるものを少しずつ食べることが大切です。水分補給を忘れずに。柑橘系の香りや生姜が症状を和らげることもあります。症状がひどい場合は医療機関にご相談ください。</p>
+        </div>
+
+        <div class="faq-item">
+            <h4>Q. 産後の抜け毛が気になります。</h4>
+            <p>A. 産後2〜3ヶ月頃から抜け毛が増えることは、ホルモンバランスの変化による自然な現象です。多くの場合、産後6ヶ月〜1年程度で元に戻ります。バランスの良い食事と十分な休息を心がけましょう。</p>
+        </div>
+
+        <div class="faq-item">
+            <h4>Q. 母乳が十分に出ているか心配です。</h4>
+            <p>A. 赤ちゃんの体重増加、おむつの濡れ具合、授乳後の赤ちゃんの様子などで判断できます。頻繁に授乳すること、水分補給、休息が母乳の分泌を促します。ご不安な場合は個別にご相談ください。</p>
+        </div>
+
+        <div class="faq-item">
+            <h4>Q. 更年期の症状にはどう対処すればいいですか？</h4>
+            <p>A. 更年期の症状は個人差が大きいです。規則正しい生活、適度な運動、バランスの良い食事が基本です。症状が日常生活に支障をきたす場合は、ホルモン補充療法などの治療法もあります。婦人科にご相談ください。</p>
+        </div>
+    </div>
+</section>
+
+<section class="cta">
+    <h3>個別のご相談も承ります</h3>
+    <p>お一人お一人の状況に合わせたアドバイスをいたします</p>
+    <a href="{{ url_for('consultation') }}" class="btn btn-primary">相談する</a>
+</section>
+{% endblock %}

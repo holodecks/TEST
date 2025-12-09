@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}助産師による女性の健康相談{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <h1 class="logo">🌸 助産師健康相談サイト</h1>
+                <ul class="nav-menu">
+                    <li><a href="{{ url_for('index') }}">ホーム</a></li>
+                    <li><a href="{{ url_for('about') }}">助産師紹介</a></li>
+                    <li><a href="{{ url_for('consultation') }}">相談する</a></li>
+                    <li><a href="{{ url_for('health_info') }}">健康情報</a></li>
+                    <li><a href="{{ url_for('contact') }}">お問い合わせ</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="alert alert-{{ category }}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+
+            {% block content %}{% endblock %}
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 助産師健康相談サイト. All rights reserved.</p>
+            <p>※このサイトは医療相談の一環として情報提供を目的としています。緊急の場合は医療機関にご連絡ください。</p>
+        </div>
+    </footer>
+</body>
+</html>

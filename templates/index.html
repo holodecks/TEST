@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}ホーム - 助産師による女性の健康相談{% endblock %}
+
+{% block content %}
+<div class="hero">
+    <h2>女性の健康を、専門家がサポートします</h2>
+    <p>経験豊富な助産師が、妊娠・出産・産後ケア・女性の健康に関する相談にお答えします</p>
+    <a href="{{ url_for('consultation') }}" class="btn btn-primary">今すぐ相談する</a>
+</div>
+
+<section class="features">
+    <h3>私たちのサービス</h3>
+    <div class="feature-grid">
+        <div class="feature-card">
+            <div class="icon">🤰</div>
+            <h4>妊娠・出産相談</h4>
+            <p>妊娠中の不安や疑問、出産準備についてアドバイスします</p>
+        </div>
+        <div class="feature-card">
+            <div class="icon">👶</div>
+            <h4>産後ケア</h4>
+            <p>産後の体調管理、育児の悩みをサポートします</p>
+        </div>
+        <div class="feature-card">
+            <div class="icon">🤱</div>
+            <h4>授乳相談</h4>
+            <p>母乳育児のコツやトラブル対処法をお伝えします</p>
+        </div>
+        <div class="feature-card">
+            <div class="icon">💝</div>
+            <h4>女性の健康</h4>
+            <p>ライフステージに応じた健康管理をアドバイスします</p>
+        </div>
+    </div>
+</section>
+
+<section class="cta">
+    <h3>専門家に相談してみませんか？</h3>
+    <p>どんな小さな悩みでもお気軽にご相談ください</p>
+    <a href="{{ url_for('consultation') }}" class="btn btn-secondary">相談フォームへ</a>
+</section>
+{% endblock %}
